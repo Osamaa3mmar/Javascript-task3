@@ -13,7 +13,7 @@ var tempProduct={};
 
 function reloadTable(){
 if(products.length==0){
-    tableBody.innerHTML=`<h2 style="background-color:red">No element</h2>`;
+    tableBody.innerHTML=`<h2>No element</h2>`;
 }
 else{
     
@@ -52,6 +52,8 @@ form.onsubmit=function(e){
     }
     else{
     makeObjectAndAddToArray(nameInput.value,priceInput.value,descriptionInput.value);
+   
+    clearInputs();
     }
     
 };
@@ -60,8 +62,14 @@ function clearInputs(){
     nameInput.value="";
     priceInput.value="";
     descriptionInput.value="";
+    toggleForm();
 }
 
+function toggleForm(){
+    form.classList.toggle("hide");
+}
+
+document.querySelector(".open-form").onclick=toggleForm;
 cancleBtn.onclick=clearInputs;
 
 
